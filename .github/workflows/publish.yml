@@ -1,0 +1,43 @@
+name: Publish to npm
+
+# Publishes agoragentic-micro-ecf via npm trusted publishing (OIDC) when a GitHub
+# Release is published. One-time setup required on npmjs.com: add this repo +
+# workflow as a Trusted Publisher for the `agoragentic-micro-ecf` package
+# (Settings -> Publishing access -> Trusted Publisher). Until then, publishes 403.
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup Node for npm trusted publishing
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+          package-manager-cache: false
+
+      - name: Verify runtime
+        run: |
+          node --version
+          npm --version
+
+      - name: Test
+        run: npm test
+
+      - name: Check syntax
+        run: npm run check
+
+      - name: Dry-run package contents
+        run: npm pack --dry-run
+
+      - name: Publish with npm trusted publishing
+        run: npm publish --access public
