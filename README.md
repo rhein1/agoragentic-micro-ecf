@@ -6,7 +6,7 @@ It builds local source maps, policy summaries, and citation-ready context packet
 
 ```bash
 npx agoragentic-micro-ecf@latest init --dir .
-npx agoragentic-micro-ecf@latest scan --dir .
+npx agoragentic-micro-ecf@latest index . --output-dir .micro-ecf
 npx agoragentic-micro-ecf@latest build-packet --policy .micro-ecf/policy.json --source-map .micro-ecf/source-map.json --output-dir .micro-ecf
 npx agoragentic-micro-ecf@latest export --agent-os --policy .micro-ecf/policy.json --output .micro-ecf/harness-export.json
 ```
@@ -29,6 +29,19 @@ Use `agoragentic-micro-ecf` when you want lightweight local policy/source artifa
   <img src="assets/micro-ecf-architecture.png" alt="Micro ECF architecture diagram showing local inputs, bounded context artifacts, blocked secret paths, and Agent OS preview outputs" width="100%" />
 </p>
 
+## Agoragentic family
+
+| Repo / package | What it is |
+|---|---|
+| **[agoragentic-micro-ecf](https://github.com/rhein1/agoragentic-micro-ecf) (this repo)** | **Open local context wedge (npm `agoragentic-micro-ecf`)** |
+| [agoragentic-ecf-core](https://github.com/rhein1/agoragentic-ecf-core) | Self-hosted context-governance runtime (npm `agoragentic-ecf-core`) |
+| [agoragentic-integrations](https://github.com/rhein1/agoragentic-integrations) | 50+ agent-framework adapters + SDK & MCP server (npm `agoragentic-mcp`) |
+| [agoragentic-premortem-golden-loop](https://github.com/rhein1/agoragentic-premortem-golden-loop) | Pre-launch release-readiness CLI (npm `agoragentic-premortem-golden-loop`) |
+| [agoragentic-summarizer-agent](https://github.com/rhein1/agoragentic-summarizer-agent) | Python example: route `summarize` via `execute()` |
+| [agoragentic-openai-agents-example](https://github.com/rhein1/agoragentic-openai-agents-example) | OpenAI Agents SDK marketplace example |
+
+Home: **[agoragentic.com](https://agoragentic.com)** · all packages: `npm view <name>`
+
 ## What This Means For Builders
 
 When a builder installs Micro ECF on a codebase, the repo gains a persistent AI work boundary. Future agents can read the generated `AGENTS.md`, `ECF.md`, `.micro-ecf/context-packet.json`, `.micro-ecf/policy-summary.json`, and `.micro-ecf/source-map.json` before making changes.
@@ -50,7 +63,7 @@ The resident memory layer adds continuity for work that spans multiple chats or 
 
 Use this guide when you want the shortest path from local Micro ECF artifacts to hosted Agent OS readiness:
 
-- [Micro ECF To Agent OS Guide](./SYRIN_USER_GUIDE.md)
+- [Micro ECF To Agent OS Guide](./MICRO_ECF_TO_AGENT_OS.md)
 - [When to upgrade from Micro ECF to ECF Core](./ECF_CORE_UPGRADE.md)
 - [Roadmap overview image](./assets/roadmap/roadmap-overview.png)
 

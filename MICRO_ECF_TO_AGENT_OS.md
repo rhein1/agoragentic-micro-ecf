@@ -1,6 +1,6 @@
-# Syrin User Guide: Micro ECF To Agent OS
+# Micro ECF To Agent OS
 
-Micro ECF gives Syrin users a local, inspectable context and policy layer before moving an agent into hosted Agent OS.
+Micro ECF gives you a local, inspectable context and policy layer before moving an agent into hosted Agent OS.
 
 Product boundary:
 
@@ -41,7 +41,7 @@ The path is:
 
 Caption: Local context setup turns allowed local sources into source maps, policy summaries, and context packets while blocked files stay out of the export.
 
-Install Micro ECF in the project you want Syrin or another local agent to understand.
+Install Micro ECF in the project you want a local coding agent to understand.
 
 ```bash
 npx agoragentic-micro-ecf@latest explain
@@ -165,7 +165,7 @@ Ask the assistant to disclose whether it used Micro ECF artifacts, the MCP serve
 ## What To Post In Discord
 
 ```text
-Micro ECF is live for Syrin users.
+Micro ECF is live for local agent builders.
 
 It lets you create local context and policy packets before moving an agent into hosted Agent OS.
 
