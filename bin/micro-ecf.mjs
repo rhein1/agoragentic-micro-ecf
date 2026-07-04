@@ -85,6 +85,8 @@ Usage:
   micro-ecf index <path> [--policy .micro-ecf/policy.json] [--output-dir .micro-ecf]
   micro-ecf build-packet [--policy .micro-ecf/policy.json] [--source-map .micro-ecf/source-map.json] [--output-dir .micro-ecf]
   micro-ecf export --agent-os [--policy .micro-ecf/policy.json] [--output .micro-ecf/harness-export.json]
+  micro-ecf search --query "..." [--root .micro-ecf] [--limit 10]
+  micro-ecf validate-policy [--policy .micro-ecf/policy.json]
   micro-ecf serve-mcp [--root .micro-ecf]
 
 LLM-safe install flow:

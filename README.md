@@ -222,7 +222,7 @@ Micro ECF can produce inputs and governance envelopes for those systems. It shou
 If you are using an IDE LLM, paste this GitHub folder link into the chat:
 
 ```text
-https://github.com/rhein1/agoragentic-integrations/tree/main/micro-ecf
+https://github.com/rhein1/agoragentic-micro-ecf
 ```
 
 Then ask it to follow [`LLM_INSTALL.md`](./LLM_INSTALL.md). The required flow is:
@@ -248,7 +248,6 @@ For the full after-install checklist, see [`POST_INSTALL.md`](./POST_INSTALL.md)
 From this repo:
 
 ```bash
-cd micro-ecf
 npm test
 node bin/micro-ecf.mjs plan --dir ../my-agent
 node bin/micro-ecf.mjs install --dir ../my-agent --yes
@@ -274,6 +273,8 @@ micro-ecf install --yes
 micro-ecf index ./docs
 micro-ecf build-packet
 micro-ecf export --agent-os
+micro-ecf search --query "..."
+micro-ecf validate-policy
 micro-ecf serve-mcp
 micro-ecf status --write
 micro-ecf context-pack --write
@@ -376,8 +377,8 @@ The export itself is no-spend and non-provisioning. `readiness` and `preview` ar
 The original helper remains available:
 
 ```bash
-node micro-ecf/export-agent-os-harness.mjs \
-  --policy micro-ecf/policy.example.json \
+node export-agent-os-harness.mjs \
+  --policy policy.example.json \
   --output ./agent-os-harness.packet.json
 ```
 

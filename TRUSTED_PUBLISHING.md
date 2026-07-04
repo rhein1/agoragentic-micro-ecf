@@ -11,7 +11,7 @@ agoragentic-micro-ecf
 GitHub workflow:
 
 ```text
-.github/workflows/publish-micro-ecf.yml
+.github/workflows/publish.yml
 ```
 
 Required npm package setting:
@@ -20,8 +20,8 @@ Required npm package setting:
 Package settings -> Trusted Publisher
 Provider: GitHub Actions
 Organization/user: rhein1
-Repository: agoragentic-integrations
-Workflow filename: publish-micro-ecf.yml
+Repository: agoragentic-micro-ecf
+Workflow filename: publish.yml
 ```
 
 After one successful trusted publish, set package publishing access to require two-factor authentication and disallow traditional tokens, then revoke any old granular npm publish tokens.
@@ -29,7 +29,7 @@ After one successful trusted publish, set package publishing access to require t
 Release tag convention:
 
 ```text
-micro-ecf-v0.1.3
+v0.1.4
 ```
 
 The workflow is tokenless. It grants only `id-token: write` and `contents: read`, uses GitHub-hosted runners, uses Node 24, disables release-build package-manager caching, runs tests/checks, performs an npm pack dry-run, and then calls `npm publish --access public`.

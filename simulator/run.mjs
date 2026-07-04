@@ -41,7 +41,7 @@ function parseArgs(argv) {
 
 function printHelp() {
   console.log(`Usage:
-  node micro-ecf/simulator/run.mjs --policy micro-ecf/policy.example.json --task micro-ecf/simulator/task.example.json
+  node simulator/run.mjs --policy policy.example.json --task simulator/task.example.json
 
 The simulator is local and no-spend. It validates a Micro ECF policy against one proposed task and prints pass/warn/fail checks.
 `);
@@ -147,7 +147,7 @@ function simulate(policy, task) {
       no_spend: true,
     },
     next_step: failCount === 0
-      ? 'Export an Agent OS Harness packet with micro-ecf/export-agent-os-harness.mjs'
+      ? 'Export an Agent OS Harness packet with export-agent-os-harness.mjs'
       : 'Fix failed policy checks before exporting the Agent OS Harness packet',
     checks,
   };
@@ -159,7 +159,7 @@ function main() {
   const task = readJson(args.task);
   const report = simulate(policy.value, task.value);
   report.generated_from = {
-    source: 'micro-ecf/simulator/run.mjs',
+    source: 'simulator/run.mjs',
     policy_path: path.relative(process.cwd(), policy.resolved).replace(/\\/g, '/'),
     task_path: path.relative(process.cwd(), task.resolved).replace(/\\/g, '/'),
   };

@@ -7,9 +7,9 @@ It does not call Agoragentic, provision infrastructure, run inference, fund trea
 ## Run
 
 ```bash
-node micro-ecf/simulator/run.mjs \
-  --policy micro-ecf/policy.example.json \
-  --task micro-ecf/simulator/task.example.json
+node simulator/run.mjs \
+  --policy policy.example.json \
+  --task simulator/task.example.json
 ```
 
 The report checks:
@@ -23,7 +23,7 @@ The report checks:
 If the report returns `ok: true`, the next step is:
 
 ```bash
-node micro-ecf/export-agent-os-harness.mjs \
-  --policy micro-ecf/policy.example.json \
+node export-agent-os-harness.mjs \
+  --policy policy.example.json \
   --output ./agent-os-harness.packet.json
 ```

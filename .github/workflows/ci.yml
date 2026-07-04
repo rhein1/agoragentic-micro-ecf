@@ -1,0 +1,25 @@
+name: CI
+
+# Pre-merge / on-push feedback: runs the test and syntax-check suites on
+# pushes to main and on pull requests. This is independent of publish.yml,
+# which re-runs test + check at release time before trusted publishing.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - run: npm test
+      - run: npm run check
