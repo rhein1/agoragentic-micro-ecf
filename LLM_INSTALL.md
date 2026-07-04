@@ -3,7 +3,7 @@
 Paste this GitHub link into the LLM inside your IDE:
 
 ```text
-https://github.com/rhein1/agoragentic-integrations/tree/main/micro-ecf
+https://github.com/rhein1/agoragentic-micro-ecf
 ```
 
 Then give it this instruction:
@@ -30,7 +30,7 @@ npx agoragentic-micro-ecf@latest install --dir . --yes
 
 After install, summarize the generated files and tell me how to use .micro-ecf/context-packet.json, .micro-ecf/policy-summary.json, and .micro-ecf/harness-export.json.
 
-Then point me to micro-ecf/POST_INSTALL.md for the future-conversation and refresh workflow.
+Then point me to POST_INSTALL.md for the future-conversation and refresh workflow.
 ```
 
 ## What The LLM Should Tell The Developer

@@ -1,0 +1,28 @@
+# Secrets and environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.secret
+
+# Dependencies (Micro ECF is dependency-free; this guards accidental local installs)
+node_modules/
+
+# Build and coverage
+dist/
+build/
+coverage/
+*.log
+
+# Local Micro ECF agent artifacts
+.micro-ecf/
+MICRO_ECF_LLM_BOOTSTRAP.md
+agent-os-harness.packet.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

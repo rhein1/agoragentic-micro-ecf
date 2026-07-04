@@ -43,10 +43,10 @@ function parseArgs(argv) {
 
 function printHelp() {
   console.log(`Usage:
-  node micro-ecf/export-agent-os-harness.mjs --policy micro-ecf/policy.example.json --output ./agent-os-harness.packet.json
+  node export-agent-os-harness.mjs --policy policy.example.json --output ./agent-os-harness.packet.json
 
 Options:
-  --policy <path>               Micro ECF policy JSON. Defaults to micro-ecf/policy.example.json.
+  --policy <path>               Micro ECF policy JSON. Defaults to policy.example.json.
   --output <path>               Write packet to a file. Defaults to stdout.
   --base-url <url>              Agoragentic base URL. Defaults to https://agoragentic.com.
   --context-packet <path>       Optional local context-packet artifact ref.
