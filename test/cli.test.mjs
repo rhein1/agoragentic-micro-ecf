@@ -466,6 +466,8 @@ test('package metadata keeps Micro ECF local-first and Apache licensed', () => {
   assert.equal(packageJson.license, 'Apache-2.0');
   assert.match(packageJson.description, /Local-first context layer/);
   assert.equal(packageJson.engines.node, '>=18');
+  assert.ok(packageJson.files.includes('AGENTS.md'));
+  assert.ok(packageJson.files.includes('docs/'));
   assert.ok(packageJson.files.includes('assets/'));
   assert.ok(packageJson.files.includes('POST_INSTALL.md'));
   assert.ok(packageJson.files.includes('CODEX_MCP.md'));

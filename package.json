@@ -19,9 +19,11 @@
     "micro-ecf": "./bin/micro-ecf.mjs"
   },
   "files": [
+    "AGENTS.md",
     "bin/",
     "src/",
     "schema/",
+    "docs/",
     "examples/",
     "assets/",
     "simulator/",
