@@ -42,6 +42,8 @@ Use `agoragentic-micro-ecf` when you want lightweight local policy/source artifa
 
 Home: **[agoragentic.com](https://agoragentic.com)** · all packages: `npm view <name>`
 
+Agent workflow contracts: [governed agent runs](./docs/agent-workflow-contracts.md) and [Fable review output](./docs/fable-review-contract.md).
+
 ## What This Means For Builders
 
 When a builder installs Micro ECF on a codebase, the repo gains a persistent AI work boundary. Future agents can read the generated `AGENTS.md`, `ECF.md`, `.micro-ecf/context-packet.json`, `.micro-ecf/policy-summary.json`, and `.micro-ecf/source-map.json` before making changes.
