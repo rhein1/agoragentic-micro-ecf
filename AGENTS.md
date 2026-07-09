@@ -24,4 +24,3 @@ Run these before publishing changes:
 npm run check
 npm test
 ```
-
