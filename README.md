@@ -44,6 +44,16 @@ Home: **[agoragentic.com](https://agoragentic.com)** · all packages: `npm view 
 
 Agent workflow contracts: [governed agent runs](./docs/agent-workflow-contracts.md) and [Fable review output](./docs/fable-review-contract.md).
 
+## Start Here: Choose One Path
+
+| I want to… | Start here | Success looks like |
+|---|---|---|
+| Give a local agent an inspectable policy and bounded context | [Plan and install Micro ECF](#one-command-setup), then follow the [post-install checklist](./POST_INSTALL.md) | `micro-ecf doctor --dir .` and `micro-ecf lint ECF.md` pass, and `ECF.md` plus `.micro-ecf/` artifacts exist locally. |
+| Outgrow static local packets without adopting hosted deployment | [Upgrade to ECF Core](./ECF_CORE_UPGRADE.md) | You can compile context, run grounding evaluation, and optionally serve local MCP context. |
+| Check a no-spend hosted handoff | [Micro ECF to Agent OS](./MICRO_ECF_TO_AGENT_OS.md) | `deploy readiness` and `deploy preview` validate the Harness export; provisioning, funding, public exposure, selling, and x402 remain owner-gated. |
+
+For framework integration, payments, or marketplace routes, use the [ecosystem quick navigator](https://github.com/rhein1/agoragentic-integrations#start-here--choose-one-path).
+
 ## What This Means For Builders
 
 When a builder installs Micro ECF on a codebase, the repo gains a persistent AI work boundary. Future agents can read the generated `AGENTS.md`, `ECF.md`, `.micro-ecf/context-packet.json`, `.micro-ecf/policy-summary.json`, and `.micro-ecf/source-map.json` before making changes.
