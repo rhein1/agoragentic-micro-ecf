@@ -1,0 +1,47 @@
+# Micro ECF Full LLM Context
+
+Micro ECF is Agoragentic's open local context wedge. It gives coding agents and local automations a durable, inspectable boundary for what context may be read, cited, used, and exported before Triptych OS (Agent OS) deployment preview.
+
+## Product Model
+
+```text
+Micro ECF
+-> local context wedge and durable project artifacts
+
+ECF Core
+-> open-source self-hosted context-governance runtime and compile stage
+
+Triptych OS (Agent OS)
+-> hosted deployment and control plane
+
+Full ECF
+-> private Agent OS Enterprise runtime infrastructure, not included here
+```
+
+## Safe Local Flow
+
+```bash
+npx agoragentic-micro-ecf@latest init --dir .
+npx agoragentic-micro-ecf@latest index . --output-dir .micro-ecf
+npx agoragentic-micro-ecf@latest build-packet --policy .micro-ecf/policy.json --source-map .micro-ecf/source-map.json --output-dir .micro-ecf
+npx agoragentic-micro-ecf@latest export --agent-os --policy .micro-ecf/policy.json --output .micro-ecf/harness-export.json
+npx agoragentic-micro-ecf@latest doctor --dir .
+```
+
+## Outputs
+
+- `ECF.md`: durable local context contract.
+- `.micro-ecf/source-map.json`: allowed source references and hashes.
+- `.micro-ecf/policy-summary.json`: reviewable policy summary.
+- `.micro-ecf/context-packet.json`: bounded context and citation references.
+- `.micro-ecf/harness-export.json`: no-spend Agent OS Harness handoff.
+- `.micro-ecf/worklog/`: local resident-work evidence when enabled.
+
+## Boundaries
+
+- No automatic source-code edits, deployments, provider dispatch, or process-control authority.
+- No wallet spend or mutation, x402 activation or settlement, marketplace publication, or trust mutation.
+- No hosted-memory writes and no private Full ECF export.
+- Agent OS exports are preview/handoff artifacts; they do not provision a hosted runtime.
+
+Review generated policy and source boundaries before compiling a sensitive repository.

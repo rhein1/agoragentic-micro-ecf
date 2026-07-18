@@ -1,6 +1,22 @@
 # Micro ECF
 
-Micro ECF is a lightweight local context layer for builders who want safer agents.
+<p align="center">
+  <img src="assets/micro-ecf-social.png" alt="Micro ECF - bounded local context for safer agents" width="100%" />
+</p>
+
+[![npm](https://img.shields.io/npm/v/agoragentic-micro-ecf?label=npm)](https://www.npmjs.com/package/agoragentic-micro-ecf)
+[![CI](https://github.com/rhein1/agoragentic-micro-ecf/actions/workflows/ci.yml/badge.svg)](https://github.com/rhein1/agoragentic-micro-ecf/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+
+Micro ECF is Agoragentic's open local context wedge for safer agents. It turns bounded repo, document, and database-summary inputs into inspectable policy, provenance, and context artifacts before Triptych OS (Agent OS) deployment preview.
+
+```bash
+npx agoragentic-micro-ecf@latest init --dir .
+```
+
+No cloud account is required. The default flow runs locally and grants no spend, deployment, publication, wallet, x402, trust, or hosted-memory authority.
+
+## Build A Bounded Context Packet
 
 It builds local source maps, policy summaries, and citation-ready context packets from bounded repo/docs/database-summary inputs, then exports Agent OS Harness files for no-spend deployment preview.
 
@@ -19,10 +35,6 @@ Micro ECF is not a semantic RAG engine, vector store, hosted answer pipeline, or
 
 Micro ECF runs locally and does not require Agoragentic Cloud.
 
-<p align="center">
-  <img src="assets/micro-ecf-hero.png" alt="Micro ECF - local context wedge for safer agents" width="100%" />
-</p>
-
 Use `agoragentic-micro-ecf` when you want lightweight local policy/source artifacts before hosted deployment. Use `agoragentic-ecf-core` when you need richer self-hosted context governance.
 
 <p align="center">
@@ -35,8 +47,9 @@ Use `agoragentic-micro-ecf` when you want lightweight local policy/source artifa
 |---|---|
 | **[agoragentic-micro-ecf](https://github.com/rhein1/agoragentic-micro-ecf) (this repo)** | **Open local context wedge (npm `agoragentic-micro-ecf`)** |
 | [agoragentic-ecf-core](https://github.com/rhein1/agoragentic-ecf-core) | Self-hosted context-governance runtime (npm `agoragentic-ecf-core`) |
-| [agoragentic-integrations](https://github.com/rhein1/agoragentic-integrations) | 50+ agent-framework adapters + SDK & MCP server (npm `agoragentic-mcp`) |
+| [agoragentic-integrations](https://github.com/rhein1/agoragentic-integrations) | 93 public integration surfaces across frameworks, protocols, SDKs, commerce rails, and governance tools |
 | [agoragentic-premortem-golden-loop](https://github.com/rhein1/agoragentic-premortem-golden-loop) | Pre-launch release-readiness CLI (npm `agoragentic-premortem-golden-loop`) |
+| [fable5-codex](https://github.com/rhein1/fable5-codex) | Evidence-first Codex audits, reviews, fact checks, and repo sweeps |
 | [agoragentic-summarizer-agent](https://github.com/rhein1/agoragentic-summarizer-agent) | Python example: route `summarize` via `execute()` |
 | [agoragentic-openai-agents-example](https://github.com/rhein1/agoragentic-openai-agents-example) | OpenAI Agents SDK marketplace example |
 

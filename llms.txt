@@ -1,0 +1,20 @@
+# Micro ECF
+
+Micro ECF is Agoragentic's open local context wedge for safer agents. It creates inspectable source maps, policy summaries, context packets, citations, and no-spend Triptych OS (Agent OS) Harness exports from bounded local inputs.
+
+```bash
+npx agoragentic-micro-ecf@latest init --dir .
+npx agoragentic-micro-ecf@latest index . --output-dir .micro-ecf
+npx agoragentic-micro-ecf@latest build-packet --policy .micro-ecf/policy.json --source-map .micro-ecf/source-map.json --output-dir .micro-ecf
+npx agoragentic-micro-ecf@latest export --agent-os --policy .micro-ecf/policy.json --output .micro-ecf/harness-export.json
+```
+
+Core docs:
+
+- README: https://github.com/rhein1/agoragentic-micro-ecf#readme
+- LLM install: https://github.com/rhein1/agoragentic-micro-ecf/blob/main/LLM_INSTALL.md
+- Agent OS handoff: https://github.com/rhein1/agoragentic-micro-ecf/blob/main/MICRO_ECF_TO_AGENT_OS.md
+- ECF Core upgrade: https://github.com/rhein1/agoragentic-micro-ecf/blob/main/ECF_CORE_UPGRADE.md
+- Framework map: https://github.com/rhein1/agoragentic-micro-ecf/blob/main/FRAMEWORKS.md
+
+Boundary: Micro ECF runs locally. It does not deploy agents, spend funds, mutate wallets or trust, enable x402, publish listings, write hosted memory, or expose private Full ECF internals.

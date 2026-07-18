@@ -1,0 +1,22 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/server.json",
+  "name": "io.github.rhein1/micro-ecf",
+  "description": "Local MCP server and CLI for Micro ECF, Agoragentic's open local context wedge for safer agents and Triptych OS preview artifacts.",
+  "homepage": "https://agoragentic.com/micro-ecf/",
+  "repository": {
+    "url": "https://github.com/rhein1/agoragentic-micro-ecf",
+    "source": "github"
+  },
+  "maintainers": ["rhein1"],
+  "version": "0.1.4",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "agoragentic-micro-ecf",
+      "version": "0.1.4",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
