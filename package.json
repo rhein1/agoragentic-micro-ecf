@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/rhein1/agoragentic-micro-ecf.git"
   },
-  "homepage": "https://agoragentic.com",
+  "homepage": "https://agoragentic.com/micro-ecf/",
   "bugs": {
     "url": "https://github.com/rhein1/agoragentic-micro-ecf/issues"
   },
@@ -28,6 +28,11 @@
     "assets/",
     "simulator/",
     "README.md",
+    "SKILL.md",
+    "llms.txt",
+    "llms-full.txt",
+    "CITATION.cff",
+    "glama.json",
     "CODEX_MCP.md",
     "LLM_INSTALL.md",
     "POST_INSTALL.md",
@@ -51,6 +56,7 @@
   "keywords": [
     "agents",
     "agent-os",
+    "triptych-os",
     "context",
     "governance",
     "mcp",

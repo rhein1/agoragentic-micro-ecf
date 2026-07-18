@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use Micro ECF, please cite this repository."
+title: "Micro ECF"
+version: "0.1.4"
+date-released: "2026-07-04"
+url: "https://github.com/rhein1/agoragentic-micro-ecf"
+repository-code: "https://github.com/rhein1/agoragentic-micro-ecf"
+license: "Apache-2.0"
+authors:
+  - family-names: "Borden"
+    given-names: "J.M."
+keywords:
+  - context governance
+  - AI agents
+  - Agent OS
+  - local-first
+  - MCP

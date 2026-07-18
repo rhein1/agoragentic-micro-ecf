@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">Micro ECF</title>
+  <desc id="desc">Bounded local context for safer agents before Triptych OS preview.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1324"/>
+      <stop offset="1" stop-color="#111b31"/>
+    </linearGradient>
+    <linearGradient id="coral" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff6b4a"/>
+      <stop offset="1" stop-color="#ef9a86"/>
+    </linearGradient>
+    <clipPath id="visualClip">
+      <rect x="810" y="58" width="410" height="524" rx="6"/>
+    </clipPath>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <path d="M0 90H1280M0 320H1280M0 550H1280M170 0V640M640 0V640M1110 0V640" stroke="#23304a" stroke-width="1" opacity="0.65"/>
+  <rect x="60" y="58" width="6" height="524" fill="url(#coral)"/>
+  <text x="104" y="132" fill="#55d7de" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">AGORAGENTIC OPEN SOURCE</text>
+  <text x="104" y="238" fill="#f7f9fc" font-family="Inter, Arial, sans-serif" font-size="82" font-weight="700">Micro ECF</text>
+  <text x="104" y="320" fill="#f7f9fc" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="600">Bounded local context.</text>
+  <text x="104" y="370" fill="#f7f9fc" font-family="Inter, Arial, sans-serif" font-size="38" font-weight="600">Inspectable policy.</text>
+  <text x="104" y="450" fill="#b9c4d8" font-family="Inter, Arial, sans-serif" font-size="25">Prepare safer agent context before</text>
+  <text x="104" y="484" fill="#b9c4d8" font-family="Inter, Arial, sans-serif" font-size="25">Triptych OS (Agent OS) preview.</text>
+  <text x="104" y="548" fill="#ff8a70" font-family="JetBrains Mono, Consolas, monospace" font-size="20">local-first  |  no-spend  |  evidence-ready</text>
+  <image href="micro-ecf-hero.png" x="748" y="-4" width="544" height="648" preserveAspectRatio="xMidYMid slice" clip-path="url(#visualClip)" opacity="0.82"/>
+  <rect x="810" y="58" width="410" height="524" rx="6" fill="none" stroke="#3c4d6d" stroke-width="2"/>
+</svg>
