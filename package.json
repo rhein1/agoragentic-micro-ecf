@@ -27,6 +27,7 @@
     "examples/",
     "assets/",
     "simulator/",
+    "scripts/",
     "README.md",
     "SKILL.md",
     "llms.txt",
@@ -51,7 +52,8 @@
   },
   "scripts": {
     "test": "node --test test/*.test.mjs",
-    "check": "node --check bin/micro-ecf.mjs && node --check src/core.mjs && node --check src/resident.mjs && node --check src/work-memory.mjs && node --check src/mcp-server.mjs && node --check export-agent-os-harness.mjs"
+    "check": "node --check bin/micro-ecf.mjs && node --check src/core.mjs && node --check src/resident.mjs && node --check src/work-memory.mjs && node --check src/mcp-server.mjs && node --check export-agent-os-harness.mjs && node --check scripts/verify-doc-links.mjs",
+    "docs:check": "node scripts/verify-doc-links.mjs"
   },
   "keywords": [
     "agents",
