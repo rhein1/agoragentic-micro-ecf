@@ -67,6 +67,8 @@ Agent workflow contracts: [governed agent runs](./docs/agent-workflow-contracts.
 
 For framework integration, payments, or marketplace routes, use the [ecosystem quick navigator](https://github.com/rhein1/agoragentic-integrations#start-here--choose-one-path).
 
+Keep these references nearby: [CLI commands, options, and exit behavior](./docs/CLI_REFERENCE.md), [glossary](./docs/GLOSSARY.md), [troubleshooting](./docs/TROUBLESHOOTING.md), and [contributing guide](./CONTRIBUTING.md).
+
 ## What This Means For Builders
 
 When a builder installs Micro ECF on a codebase, the repo gains a persistent AI work boundary. Future agents can read the generated `AGENTS.md`, `ECF.md`, `.micro-ecf/context-packet.json`, `.micro-ecf/policy-summary.json`, and `.micro-ecf/source-map.json` before making changes.

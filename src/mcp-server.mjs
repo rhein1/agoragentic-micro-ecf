@@ -20,6 +20,10 @@ import {
   readWorklogArtifacts,
 } from './work-memory.mjs';
 
+const PACKAGE_VERSION = JSON.parse(
+  fs.readFileSync(new URL('../package.json', import.meta.url), 'utf8'),
+).version;
+
 const TOOLS = [
   {
     name: 'micro_ecf.search_context',
@@ -146,7 +150,7 @@ async function handleRequest(request, root) {
       protocolVersion: '2024-11-05',
       serverInfo: {
         name: 'micro-ecf',
-        version: '0.1.0',
+        version: PACKAGE_VERSION,
       },
       capabilities: {
         tools: {},
@@ -207,6 +211,10 @@ async function callTool(name, args, root) {
 
   if (name === 'micro_ecf.export_agent_os_harness') {
     const outputPath = path.resolve(root, args.output || 'harness-export.json');
+    const relativeOutput = path.relative(root, outputPath);
+    if (relativeOutput === '..' || relativeOutput.startsWith(`..${path.sep}`) || path.isAbsolute(relativeOutput)) {
+      throw new Error('Harness export output must stay within the configured Micro ECF artifact root');
+    }
     const { output } = exportAgentOsHarness({
       policyPath,
       outputPath,
