@@ -4,7 +4,7 @@ All notable changes to Micro ECF are documented here.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project follows semantic versioning for public CLI/schema surfaces.
 
-## [Unreleased]
+## [0.1.5] - 2026-07-22
 
 ### Added
 - Machine-readable discovery files: `llms.txt`, `llms-full.txt`, `SKILL.md`, `CITATION.cff`, and `glama.json`.
@@ -14,6 +14,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Changed
 - Clarified the first-run path, Triptych OS relationship, and local no-authority boundary in the README.
 - Updated the public integration count and package homepage.
+- Report the package version from `package.json` in the local MCP handshake instead of a stale hard-coded value.
+
+### Security
+- Reject MCP-requested Agent OS Harness export paths that escape the configured Micro ECF artifact root.
 
 ## [0.1.4] - 2026-07-04
 
