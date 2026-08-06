@@ -1,218 +1,141 @@
 # Micro ECF
 
-<p align="center">
-  <img src="assets/micro-ecf-social.png" alt="Micro ECF - bounded local context for safer agents" width="100%" />
-</p>
+![Micro ECF — a persistent, inspectable context boundary for coding agents](assets/micro-ecf-product-hero.svg)
 
 [![npm](https://img.shields.io/npm/v/agoragentic-micro-ecf?label=npm)](https://www.npmjs.com/package/agoragentic-micro-ecf)
 [![CI](https://github.com/rhein1/agoragentic-micro-ecf/actions/workflows/ci.yml/badge.svg)](https://github.com/rhein1/agoragentic-micro-ecf/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
-Micro ECF is Agoragentic's open local context wedge for safer agents. It turns bounded repo, document, and database-summary inputs into inspectable policy, provenance, and context artifacts before Triptych OS (Agent OS) deployment preview.
+## Give every new agent the same inspectable project boundary.
+
+**Micro ECF adds a persistent local context contract to a repository.** It records which sources are allowed, which remain blocked, where context came from, what an agent should inspect next, and what may be exported into a no-spend Triptych OS (Agent OS) preview.
 
 ```bash
 npx agoragentic-micro-ecf@latest init --dir .
 ```
 
-No cloud account is required. The default flow runs locally and grants no spend, deployment, publication, wallet, x402, trust, or hosted-memory authority.
-
-## Build A Bounded Context Packet
-
-It builds local source maps, policy summaries, and citation-ready context packets from bounded repo/docs/database-summary inputs, then exports Agent OS Harness files for no-spend deployment preview.
-
-```bash
-npx agoragentic-micro-ecf@latest init --dir .
-npx agoragentic-micro-ecf@latest index . --output-dir .micro-ecf
-npx agoragentic-micro-ecf@latest build-packet --policy .micro-ecf/policy.json --source-map .micro-ecf/source-map.json --output-dir .micro-ecf
-npx agoragentic-micro-ecf@latest export --agent-os --policy .micro-ecf/policy.json --output .micro-ecf/harness-export.json
-```
-
-Expected output: `ECF.md`, `.micro-ecf/source-map.json`, `.micro-ecf/policy-summary.json`, `.micro-ecf/context-packet.json`, and `.micro-ecf/harness-export.json`.
-
-Proof demo: [`.env` stays blocked while allowed sources keep citations](examples/secret-block-proof.md).
-
-Micro ECF is not a semantic RAG engine, vector store, hosted answer pipeline, or Full ECF runtime. It tells an agent what context is allowed, where it came from, what is blocked, and what can be exported into an Agent OS deployment preview.
-
-Micro ECF runs locally and does not require Agoragentic Cloud.
-
-Use `agoragentic-micro-ecf` when you want lightweight local policy/source artifacts before hosted deployment. Use `agoragentic-ecf-core` when you need richer self-hosted context governance.
-
-<p align="center">
-  <img src="assets/micro-ecf-architecture.png" alt="Micro ECF architecture diagram showing local inputs, bounded context artifacts, blocked secret paths, and Agent OS preview outputs" width="100%" />
-</p>
-
-## Agoragentic family
-
-| Repo / package | What it is |
-|---|---|
-| **[agoragentic-micro-ecf](https://github.com/rhein1/agoragentic-micro-ecf) (this repo)** | **Open local context wedge (npm `agoragentic-micro-ecf`)** |
-| [agoragentic-ecf-core](https://github.com/rhein1/agoragentic-ecf-core) | Self-hosted context-governance runtime (npm `agoragentic-ecf-core`) |
-| [agoragentic-integrations](https://github.com/rhein1/agoragentic-integrations) | 93 public integration surfaces across frameworks, protocols, SDKs, commerce rails, and governance tools |
-| [agoragentic-premortem-golden-loop](https://github.com/rhein1/agoragentic-premortem-golden-loop) | Pre-launch release-readiness CLI (npm `agoragentic-premortem-golden-loop`) |
-| [fable5-codex](https://github.com/rhein1/fable5-codex) | Evidence-first Codex audits, reviews, fact checks, and repo sweeps |
-| [agoragentic-summarizer-agent](https://github.com/rhein1/agoragentic-summarizer-agent) | Python example: route `summarize` via `execute()` |
-| [agoragentic-openai-agents-example](https://github.com/rhein1/agoragentic-openai-agents-example) | OpenAI Agents SDK marketplace example |
-
-Home: **[agoragentic.com](https://agoragentic.com)** · all packages: `npm view <name>`
-
-Agent workflow contracts: [governed agent runs](./docs/agent-workflow-contracts.md) and [Fable review output](./docs/fable-review-contract.md).
-
-## Start Here: Choose One Path
-
-| I want to… | Start here | Success looks like |
-|---|---|---|
-| Give a local agent an inspectable policy and bounded context | [Plan and install Micro ECF](#one-command-setup), then follow the [post-install checklist](./POST_INSTALL.md) | `micro-ecf doctor --dir .` and `micro-ecf lint ECF.md` pass, and `ECF.md` plus `.micro-ecf/` artifacts exist locally. |
-| Outgrow static local packets without adopting hosted deployment | [Upgrade to ECF Core](./ECF_CORE_UPGRADE.md) | You can compile context, run grounding evaluation, and optionally serve local MCP context. |
-| Check a no-spend hosted handoff | [Micro ECF to Agent OS](./MICRO_ECF_TO_AGENT_OS.md) | `deploy readiness` and `deploy preview` validate the Harness export; provisioning, funding, public exposure, selling, and x402 remain owner-gated. |
-
-For framework integration, payments, or marketplace routes, use the [ecosystem quick navigator](https://github.com/rhein1/agoragentic-integrations#start-here--choose-one-path).
-
-Keep these references nearby: [CLI commands, options, and exit behavior](./docs/CLI_REFERENCE.md), [glossary](./docs/GLOSSARY.md), [troubleshooting](./docs/TROUBLESHOOTING.md), and [contributing guide](./CONTRIBUTING.md).
-
-## What This Means For Builders
-
-When a builder installs Micro ECF on a codebase, the repo gains a persistent AI work boundary. Future agents can read the generated `AGENTS.md`, `ECF.md`, `.micro-ecf/context-packet.json`, `.micro-ecf/policy-summary.json`, and `.micro-ecf/source-map.json` before making changes.
-
-That gives the builder:
-
-- continuity across Codex, Cursor, Claude, Gemini, and other IDE-agent sessions
-- an explicit list of allowed and blocked local sources
-- citation-ready context packets for reviewing why an agent used a source
-- local tool, budget, approval, memory, and swarm boundaries
-- resident worklog, docs-sync plan, and handoff artifacts for long goals
-- an Agent OS Harness export when the builder wants a no-spend hosted preview
-
-Micro ECF does not replace source-code inspection. It gives agents a durable starting contract and local governance packet so they know what to inspect, what not to expose, and what should require owner review.
-
-The resident memory layer adds continuity for work that spans multiple chats or IDE restarts. It records the active goal, checkpoints, commits, validation, unfinished work, docs-impact plan, and next prompt in local `.micro-ecf/` files that a future agent can inspect. This is not cloud memory or hidden agent state; it is a local file ledger the builder can review, edit, or delete.
-
-## Agent OS Upgrade Path
-
-Use this guide when you want the shortest path from local Micro ECF artifacts to hosted Agent OS readiness:
-
-- [Micro ECF To Agent OS Guide](./MICRO_ECF_TO_AGENT_OS.md)
-- [When to upgrade from Micro ECF to ECF Core](./ECF_CORE_UPGRADE.md)
-- [Roadmap overview image](./assets/roadmap/roadmap-overview.png)
-
-![Micro ECF to Agent OS roadmap](assets/roadmap/roadmap-overview.png)
-
-## Product Boundary
-
-Micro ECF is not Full ECF.
-
-Use this product rule everywhere:
-
-```text
-Micro ECF is the local context wedge.
-ECF Core is the open-source self-hosted context-governance runtime.
-Agent OS is the deployment product.
-Full ECF is private/internal infrastructure.
-```
-
-Architecture rule:
-
-```text
-Micro ECF may prepare context for Agent OS, but it must not contain the private runtime,
-settlement, trust-ranking, or enterprise governance internals that make Agoragentic defensible.
-```
-
-Learning memory follows the same boundary. It may rank, block, route, summarize, or recommend review guidance, but it must never auto-approve, auto-dispatch, spend funds, mutate code, deploy, change secrets, publish marketplace listings, or bypass human/ECF approval.
-
-## What Micro ECF Does
-
-Micro ECF helps a builder answer:
-
-```text
-Given the context my tools already have or can locally summarize, what is this agent
-allowed to know, cite, use, act on, and export into an Agent OS deployment preview?
-```
-
-Core capabilities:
-
-- bounded local source inventory and summarization
-- context packet generation from source summaries/provenance
-- citation/source maps for allowed local artifacts
-- policy summaries
-- tool/context allowlists
-- small workflow maps
-- optional context-provider declarations for RAG/code-graph/MCP systems
-- pre/post-action governance inputs for the Consequences Engine
-- review-only learning-memory boundary metadata
-- deployment-intent files
-- Agent OS Harness export
-- optional local MCP server
-
-Good inputs:
-
-- markdown/docs
-- small repos
-- local files
-- SQLite files and schema/data summaries
-- small Postgres/MySQL exports
-- API docs
-- agent configs
-- test harnesses
-- local policy files
-
-Generated outputs:
+Expected local outputs include:
 
 ```text
 ECF.md
-.micro-ecf/context-packet.json
-.micro-ecf/policy-summary.json
-.micro-ecf/source-map.json
-.micro-ecf/harness-export.json
-.micro-ecf/deployment-preview.json
-.micro-ecf/resident-status.json
-.micro-ecf/context-pack.json
-.micro-ecf/worklog/current.json
-.micro-ecf/worklog/history.jsonl
-.micro-ecf/worklog/checkpoints.jsonl
-.micro-ecf/worklog/latest-summary.md
-.micro-ecf/docs-sync-plan.json
-.micro-ecf/handoff.json
-.micro-ecf/handoff.md
-.micro-ecf/next-session.md
 AGENTS.md
-MICRO_ECF_LLM_BOOTSTRAP.md
+.micro-ecf/
+├── source-map.json
+├── policy-summary.json
+├── context-packet.json
+├── harness-export.json
+├── resident-status.json
+├── context-pack.json
+├── worklog/
+└── handoff.json
 ```
 
-## What A Context Packet Is
+The default flow is local. It does not create a cloud account or grant spend, deployment, publication, wallet, x402, trust, ranking, or hosted-memory authority.
 
-A Micro ECF context packet is a governance artifact, not a retrieved-answer bundle.
+<p>
+  <a href="#five-minute-proof"><strong>Run the proof</strong></a>
+  ·
+  <a href="POST_INSTALL.md"><strong>Post-install checklist</strong></a>
+  ·
+  <a href="ECF_CORE_UPGRADE.md"><strong>Upgrade to ECF Core</strong></a>
+  ·
+  <a href="MICRO_ECF_TO_AGENT_OS.md"><strong>Preview Agent OS</strong></a>
+</p>
 
-It contains:
+## Why Micro ECF
 
-- source IDs, paths, hashes, summaries, citation IDs, and provenance
-- allowed and blocked context classes
-- export boundaries such as `raw_content_exported=false`
-- references that Agent OS or an IDE assistant can use to inspect the real source files
+Coding-agent sessions often begin with different chat history, different tools, and different assumptions about a project. Micro ECF gives them a shared, reviewable starting contract instead of relying on hidden memory or whatever happened to fit in the current prompt.
+
+It helps a builder answer:
+
+```text
+What may this agent know, cite, use, act on, and export?
+What must remain blocked?
+What evidence supports the current handoff?
+```
+
+Use Micro ECF when you need:
+
+- a small persistent `ECF.md` contract;
+- allowed and blocked local source classes;
+- source IDs, paths, hashes, summaries, citations, and provenance;
+- a bounded context packet rather than a retrieved-answer bundle;
+- continuity across Codex, Claude Code, Cursor, Gemini, and other IDE-agent sessions;
+- a local worklog, handoff, and next-session prompt;
+- an optional local MCP context surface;
+- a no-spend Harness export for Agent OS preview.
+
+## Five-minute proof
+
+### 1. Initialize the project boundary
+
+```bash
+npx agoragentic-micro-ecf@latest init --dir .
+```
+
+This creates persistent local files. Review the target directory and generated plan before using an automated agent to apply installation changes.
+
+### 2. Index bounded sources
+
+```bash
+npx agoragentic-micro-ecf@latest index . --output-dir .micro-ecf
+```
+
+### 3. Build a context packet
+
+```bash
+npx agoragentic-micro-ecf@latest build-packet \
+  --policy .micro-ecf/policy.json \
+  --source-map .micro-ecf/source-map.json \
+  --output-dir .micro-ecf
+```
+
+### 4. Verify the boundary
+
+```bash
+npx agoragentic-micro-ecf@latest doctor --dir .
+npx agoragentic-micro-ecf@latest lint ECF.md
+```
+
+Proof fixture: [`.env` stays blocked while allowed sources retain citations](examples/secret-block-proof.md).
+
+Success means the local artifacts exist, allowed sources preserve provenance, blocked sources remain blocked, and no raw secret content is exported into the context packet.
+
+## What a context packet is
+
+A Micro ECF context packet is a **governance artifact**. It contains bounded source descriptors and policy state that another agent or runtime can inspect.
+
+It may contain:
+
+- source IDs, paths, hashes, summaries, and citation IDs;
+- allowed and blocked context classes;
+- provenance and export boundaries;
+- references to the real source files;
+- declared tool, budget, approval, memory, and swarm boundaries.
 
 It does not contain:
 
-- embeddings
-- vector indexes
-- semantic search results
-- model-generated answers
-- raw secret or private-file contents
-- Full ECF private context graph internals
+- embeddings or a vector index;
+- a hosted retrieval answer;
+- an automatic semantic search result;
+- raw secret or private-file content;
+- private Full ECF internals;
+- permission to execute, spend, deploy, or publish.
 
-Use direct source reads, your own RAG, GitNexus, or another MCP/context provider as the source of truth for deep retrieval. Use Micro ECF to govern what those systems may expose or act on.
+Use direct source reads, your own retrieval system, a code graph, or another MCP/context provider for deep retrieval. Use Micro ECF to govern what those systems may expose or act on.
 
 ## ECF.md
 
-`ECF.md` is the persistent agent-readable Micro ECF contract for a local project. It follows the same practical pattern as other agent-readable project contracts: machine-readable front matter plus human-readable rationale.
+`ECF.md` is the persistent agent-readable contract installed in a project. A new agent session can inspect it to learn:
 
-Use it when a new Codex, Cursor, Claude, Gemini, database, or IDE agent conversation needs to know:
+- what Micro ECF is doing in the repository;
+- which source classes are allowed;
+- which paths remain blocked;
+- where generated context and policy artifacts live;
+- when to inspect the real source rather than trust a summary;
+- when an Agent OS preview export is appropriate.
 
-- what Micro ECF is doing in this repo
-- which sources are allowed
-- which sources are blocked
-- how to verify Micro ECF is installed
-- when to use `.micro-ecf/*` artifacts
-- when to export an Agent OS Harness packet
-
-Commands:
+Useful commands:
 
 ```bash
 micro-ecf lint ECF.md
@@ -220,94 +143,151 @@ micro-ecf diff ECF.md ECF-next.md
 micro-ecf spec
 ```
 
-## What Micro ECF Does Not Include
+Micro ECF does not replace source inspection. It provides a durable map and boundary so the agent knows what to inspect and what not to expose.
 
-Do not add these to Micro ECF:
+## Safe LLM-assisted installation
 
-- semantic/vector retrieval engine
-- hosted RAG answer path
-- embedding store or model-backed reranker
-- Full ECF private context graph internals
-- tenant isolation runtime
-- enterprise connector architecture
-- enterprise audit-log internals
-- marketplace ranking, trust, or fraud internals
-- router provider-selection internals
-- wallet settlement internals
-- x402 settlement executor internals
-- hosted provisioning code
-- private connectors
-- secrets broker
-- operator prompts
-- customer-control evidence tooling
-- internal policy scoring for enterprise approvals
+Give an IDE agent the repository URL and ask it to follow [`LLM_INSTALL.md`](LLM_INSTALL.md).
 
-Micro ECF can produce inputs and governance envelopes for those systems. It should not implement them.
-
-## One-Command Setup
-
-If you are using an IDE LLM, paste this GitHub folder link into the chat:
-
-```text
-https://github.com/rhein1/agoragentic-micro-ecf
-```
-
-Then ask it to follow [`LLM_INSTALL.md`](./LLM_INSTALL.md). The required flow is:
+The approval-oriented flow is:
 
 ```bash
 micro-ecf plan --dir .
-# show the plan and wait for explicit approval
+# review the read/write plan
 micro-ecf install --dir . --yes
 ```
 
-`plan` is read-only. `install` without `--yes` refuses to write files and returns the approval plan.
+`plan` is read-only. `install` without `--yes` refuses to apply the write plan.
 
-Important: installing Micro ECF creates persistent repo artifacts. It does not automatically inject hidden context into every future LLM conversation.
+Installing Micro ECF does not automatically inject hidden context into future conversations. Future sessions use one of these explicit paths:
 
-For future conversations, use one of three handoff paths:
+1. an IDE agent reads `AGENTS.md`, then inspects `.micro-ecf/policy-summary.json`, `context-packet.json`, and `source-map.json`;
+2. another chat receives `MICRO_ECF_LLM_BOOTSTRAP.md` as an explicit bootstrap;
+3. an MCP-compatible IDE connects to `micro-ecf serve-mcp --root .micro-ecf`.
 
-- Compatible IDE agents should auto-read `AGENTS.md`, then inspect `.micro-ecf/policy-summary.json`, `.micro-ecf/context-packet.json`, and `.micro-ecf/source-map.json`.
-- Any other LLM chat should receive `MICRO_ECF_LLM_BOOTSTRAP.md` as a pasted or attached bootstrap file at the start of the conversation.
-- IDEs that support persistent MCP tools can run `micro-ecf serve-mcp --root .micro-ecf` and configure that server once.
+See [the post-install checklist](POST_INSTALL.md).
 
-For the full after-install checklist, see [`POST_INSTALL.md`](./POST_INSTALL.md).
+## Resident work context
 
-From this repo:
+Use the local worklog when a goal spans multiple agent sessions:
 
 ```bash
-npm test
-node bin/micro-ecf.mjs plan --dir ../my-agent
-node bin/micro-ecf.mjs install --dir ../my-agent --yes
+micro-ecf worklog begin --goal "Implement local proof runner"
+micro-ecf worklog checkpoint \
+  --summary "CLI and receipt verifier are drafted" \
+  --validation "npm test"
+micro-ecf worklog finish \
+  --summary "Committed local proof runner" \
+  --commit abc123 \
+  --tests "npm test" \
+  --next-prompt "Harden receipt verification"
+micro-ecf docs-sync plan --dir .
+micro-ecf handoff --write
 ```
 
-From npm:
+The resident layer records inspectable local state such as the active goal, checkpoints, changed files, validation, unfinished work, documentation impact, and next-session prompt.
+
+It does not automatically edit source, approve an action, dispatch work, spend, deploy, rotate secrets, publish a marketplace listing, or mutate hosted memory.
+
+For a single end-of-session refresh:
 
 ```bash
-npx agoragentic-micro-ecf@latest explain
-npx agoragentic-micro-ecf@latest plan --dir .
-npx agoragentic-micro-ecf@latest install --dir . --yes
+micro-ecf resident refresh --dir .
 ```
 
-The binary is intentionally simple:
+## Local MCP
+
+Generate a host configuration and serve the compiled local artifacts:
 
 ```bash
-micro-ecf init
+micro-ecf mcp-config --target codex --write
+micro-ecf serve-mcp --root .micro-ecf
+```
+
+The MCP surface is local context serving. It is not hosted Triptych OS, marketplace execution, wallet custody, or settlement.
+
+See [Codex MCP setup](CODEX_MCP.md) and the [provider-wrapping guide](PROVIDER_WRAPPING.md).
+
+## Agent OS preview
+
+Export a no-spend Harness packet:
+
+```bash
+npx agoragentic-micro-ecf@latest export \
+  --agent-os \
+  --policy .micro-ecf/policy.json \
+  --output .micro-ecf/harness-export.json
+```
+
+Then follow [Micro ECF to Agent OS](MICRO_ECF_TO_AGENT_OS.md).
+
+An Agent OS preview checks the shape and readiness of the handoff. It does not provision runtime, fund a wallet, expose the agent publicly, publish a listing, enable x402, mutate trust, or authorize spend.
+
+## Micro ECF vs. ECF Core
+
+Choose **Micro ECF** when you want the smallest durable project contract, source map, policy summary, context packet, resident handoff, and Harness export.
+
+Choose **ECF Core** when you also need richer source compilation, code indexes, context routing, evidence units, grounding evaluation, optional ranking providers, or a fuller local MCP runtime.
+
+Upgrade guide: [When to move from Micro ECF to ECF Core](ECF_CORE_UPGRADE.md).
+
+```text
+Micro ECF
+→ lightweight persistent project boundary
+
+ECF Core
+→ richer self-hosted context governance and local MCP
+
+Harness Core
+→ tool/action policy, approvals, evidence, and local receipts
+
+Triptych OS
+→ hosted governed-agent runtime
+```
+
+## Product boundary
+
+Micro ECF is:
+
+- open source;
+- local-first;
+- a small persistent context and policy contract;
+- provenance and citation aware;
+- able to create local resident/handoff artifacts;
+- able to prepare a no-spend Agent OS preview export.
+
+Micro ECF is not:
+
+- a semantic/vector retrieval engine;
+- a hosted RAG answer service;
+- the private Full ECF context graph;
+- tenant-isolated enterprise infrastructure;
+- marketplace ranking, trust, or fraud logic;
+- a wallet, x402 settlement executor, or hosted runtime;
+- an approval, certification, audit opinion, or safety guarantee.
+
+Learning or resident metadata may rank, route, block, summarize, or recommend review. It must not auto-approve, auto-dispatch, mutate code, spend funds, deploy, change secrets, publish listings, or bypass owner/ECF approval.
+
+## CLI map
+
+```text
+micro-ecf explain
+micro-ecf plan --dir .
+micro-ecf install --dir . --yes
+micro-ecf init --dir .
 micro-ecf scan
-micro-ecf doctor
+micro-ecf doctor --dir .
 micro-ecf lint ECF.md
-micro-ecf plan
-micro-ecf install --yes
 micro-ecf index ./docs
 micro-ecf build-packet
 micro-ecf export --agent-os
 micro-ecf search --query "..."
 micro-ecf validate-policy
-micro-ecf serve-mcp
+micro-ecf serve-mcp --root .micro-ecf
 micro-ecf status --write
 micro-ecf context-pack --write
 micro-ecf resident status
 micro-ecf resident refresh
-micro-ecf mcp-config --target codex --write
 micro-ecf worklog begin --goal "..."
 micro-ecf worklog checkpoint --summary "..."
 micro-ecf worklog finish --summary "..."
@@ -315,243 +295,47 @@ micro-ecf docs-sync plan
 micro-ecf handoff --write
 ```
 
-## Resident Work Memory
+See [the CLI reference](docs/CLI_REFERENCE.md) for exact options and exit behavior.
 
-Use the resident worklog when a goal spans multiple IDE or Codex conversations:
+## Development
 
-```bash
-micro-ecf worklog begin --goal "Implement local proof runner"
-micro-ecf worklog checkpoint --summary "CLI and receipt verifier are drafted" --validation "npm test"
-micro-ecf worklog finish --summary "Committed local proof runner" --commit abc123 --tests "npm test" --next-prompt "Harden receipt verification"
-micro-ecf docs-sync plan --dir .
-micro-ecf handoff --write
-```
-
-The worklog and handoff artifacts are local-only. `docs-sync plan` proposes documentation updates but does not edit docs. Micro ECF will not auto-edit documentation unless a future explicit apply command is added and intentionally run.
-
-For builders, the resident files answer five practical questions at the start of the next session:
-
-- What goal was active?
-- What changed and which files were involved?
-- Which validation ran?
-- Which docs probably need updates?
-- What exact next prompt should the next agent continue from?
-
-For a single local refresh before closing an IDE or Codex session, use:
+Requires Node.js 18 or newer.
 
 ```bash
-micro-ecf resident refresh --dir .
+git clone https://github.com/rhein1/agoragentic-micro-ecf.git
+cd agoragentic-micro-ecf
+npm install
+npm test
+npm run check
+npm run docs:check
 ```
 
-`resident refresh` writes only `.micro-ecf/` resident artifacts: `resident-status.json`, `context-pack.json`, `docs-sync-plan.json`, `handoff.md`, `handoff.json`, and `next-session.md`. It does not deploy, spend, mutate wallets, settle x402, publish marketplace listings, provision hosted runtime, or expose Full ECF private internals.
+## Documentation
 
-If Codex or another IDE supports local MCP tools, `micro-ecf serve-mcp --root .micro-ecf` exposes read-only resident tools for future sessions:
+- [LLM-assisted install](LLM_INSTALL.md)
+- [Post-install checklist](POST_INSTALL.md)
+- [CLI reference](docs/CLI_REFERENCE.md)
+- [Glossary](docs/GLOSSARY.md)
+- [Troubleshooting](docs/TROUBLESHOOTING.md)
+- [Framework guidance](FRAMEWORKS.md)
+- [Provider wrapping](PROVIDER_WRAPPING.md)
+- [Codex MCP](CODEX_MCP.md)
+- [Upgrade to ECF Core](ECF_CORE_UPGRADE.md)
+- [Agent OS preview path](MICRO_ECF_TO_AGENT_OS.md)
+- [Security policy](SECURITY.md)
+- [Contributing](CONTRIBUTING.md)
 
-- `micro_ecf.worklog_status`
-- `micro_ecf.handoff`
-- `micro_ecf.work_memory`
+## Where this fits
 
-## Local Workflow
+- **Tool/action governance:** [Harness Core](https://github.com/rhein1/agoragentic-integrations/tree/main/harness-core)
+- **Richer self-hosted context governance:** [ECF Core](https://github.com/rhein1/agoragentic-ecf-core)
+- **Evidence-first Codex workflows:** [Fable-5](https://github.com/rhein1/fable5-codex)
+- **Hosted governed runtime:** [Triptych OS](https://agoragentic.com/agent-os/)
+- **Agent work and commerce:** [Marketplace](https://agoragentic.com/marketplace/) and [Interchange](https://agoragentic.com/interchange/)
+- **Integration hub:** [Agoragentic Integrations](https://github.com/rhein1/agoragentic-integrations)
 
-Initialize a local project:
-
-```bash
-npx agoragentic-micro-ecf@latest init --dir ./my-agent
-```
-
-Verify the local install and inspect the context boundary without writing:
-
-```bash
-npx agoragentic-micro-ecf@latest doctor --dir ./my-agent
-npx agoragentic-micro-ecf@latest scan --dir ./my-agent
-```
-
-Index bounded local context:
-
-```bash
-npx agoragentic-micro-ecf@latest index ./my-agent/docs --output-dir ./my-agent/.micro-ecf
-```
-
-Build local artifacts:
-
-```bash
-npx agoragentic-micro-ecf@latest build-packet \
-  --policy ./my-agent/.micro-ecf/policy.json \
-  --source-map ./my-agent/.micro-ecf/source-map.json \
-  --output-dir ./my-agent/.micro-ecf
-```
-
-Export an Agent OS Harness packet:
-
-```bash
-npx agoragentic-micro-ecf@latest export --agent-os \
-  --policy ./my-agent/.micro-ecf/policy.json \
-  --output ./my-agent/.micro-ecf/harness-export.json
-```
-
-Then hand it to hosted Agent OS:
-
-```bash
-AGORAGENTIC_API_KEY=amk_your_key npx agoragentic-os@latest deploy readiness --file ./my-agent/.micro-ecf/harness-export.json
-AGORAGENTIC_API_KEY=amk_your_key npx agoragentic-os@latest deploy preview --file ./my-agent/.micro-ecf/harness-export.json
-AGORAGENTIC_API_KEY=amk_your_key npx agoragentic-os@latest deploy create --file ./my-agent/.micro-ecf/harness-export.json
-```
-
-The export itself is no-spend and non-provisioning. `readiness` and `preview` are no-spend checks. `deploy create` records a hosted deployment request; funding, runtime provisioning, public API exposure, marketplace selling, and x402 monetization remain separate approval-gated steps.
-
-## Legacy Export Helper
-
-The original helper remains available:
-
-```bash
-node export-agent-os-harness.mjs \
-  --policy policy.example.json \
-  --output ./agent-os-harness.packet.json
-```
-
-Use the CLI for full local context artifacts. Use the helper when you only need a Harness packet from a policy file.
-
-## Local MCP Server
-
-Micro ECF can run as a local stdio MCP server:
-
-```bash
-micro-ecf serve-mcp --root .micro-ecf
-```
-
-Tools:
-
-- `micro_ecf.search_context`
-- `micro_ecf.get_source`
-- `micro_ecf.get_policy`
-- `micro_ecf.build_packet`
-- `micro_ecf.export_agent_os_harness`
-
-The MCP server reads and writes local `.micro-ecf` artifacts only. It does not call Agoragentic Cloud.
-
-## Context Providers
-
-Micro ECF can attach optional context providers for pre-action impact review. A provider brings its own retrieval, graph, or database engine; Micro ECF records the provider contract, policy boundary, and evidence shape so Agent OS can evaluate blast radius before an agent acts.
-
-Full guide: [`PROVIDER_WRAPPING.md`](./PROVIDER_WRAPPING.md).
-
-Framework guide: [`FRAMEWORKS.md`](./FRAMEWORKS.md).
-
-Evidence/eval backlog: [`AGENT_OS_EVIDENCE_EVAL_BACKLOG.md`](./AGENT_OS_EVIDENCE_EVAL_BACKLOG.md).
-
-Supported provider types:
-
-| Type | Description |
-|------|-------------|
-| `code_graph` | Codebase structural awareness: functions, imports, call chains, dependencies |
-| `retrieval_context` | RAG, document retrieval, database schema/context, or other context engines that return cited evidence |
-| `tool_graph` | Tool and API dependency graph |
-| `policy_graph` | Governance and compliance policy relationships |
-| `workflow_graph` | Multi-step workflow and process dependencies |
-| `receipt_graph` | Transaction and receipt chain relationships |
-| `marketplace_graph` | Marketplace listing and seller dependency graph |
-| `enterprise_context_graph` | Reserved for Full ECF / enterprise deployments, not local Micro ECF internals |
-
-### Existing RAG As `retrieval_context`
-
-If you already have RAG, keep it. Configure it as a provider:
-
-```json
-{
-  "context_providers": [
-    {
-      "provider_id": "ctx_local_rag_docs",
-      "type": "retrieval_context",
-      "provider": "local_rag",
-      "mode": "local_mcp",
-      "enabled": true,
-      "scope": "docs_and_repo",
-      "capabilities": ["query", "retrieve", "cite"],
-      "required": false,
-      "required_for_action_classes": ["read_only", "code_change"],
-      "mcp": {
-        "server": "local-rag",
-        "transport": "stdio"
-      }
-    }
-  ]
-}
-```
-
-Your RAG provider owns retrieval. Micro ECF owns the policy envelope: allowed sources, blocked sources, citation requirements, budget/action gates, and whether an action should fail closed if the provider is unavailable.
-
-### GitNexus As Optional `code_graph`
-
-GitNexus can be used as an optional local `code_graph` provider. Treat it as a provider pattern, not a dependency or rebrand.
-
-```json
-{
-  "context_providers": [
-    {
-      "provider_id": "ctx_gitnexus_local",
-      "type": "code_graph",
-      "provider": "gitnexus",
-      "name": "GitNexus",
-      "mode": "local_mcp",
-      "status": "available",
-      "enabled": true,
-      "scope": "workspace",
-      "capabilities": ["impact", "context", "query", "detect_changes", "generate_map"],
-      "required": false,
-      "required_for_action_classes": ["code_change"],
-      "mcp": {
-        "server": "gitnexus",
-        "transport": "stdio"
-      }
-    }
-  ]
-}
-```
-
-If no provider is configured or reachable, Agent OS falls back to standard policy/consequence review. Micro ECF does not silently replace the provider with a hidden RAG system.
-
-## How It Connects To Agent OS
-
-Funnel:
-
-```text
-1. Builder installs Micro ECF locally.
-2. Builder points it at repo/docs/db.
-3. Micro ECF builds source maps, policy summaries, and context packets from allowed local summaries/provenance.
-4. Builder sees what the agent can safely know, cite, use, and which external context providers may be consulted.
-5. Micro ECF exports Agent OS Harness files.
-6. Builder previews deployment on Agoragentic.
-7. If they want runtime, wallets, APIs, receipts, marketplace, or x402 monetization, they move to Agent OS.
-8. If they outgrow static local artifacts but still do not need hosted deployment, they move to ECF Core.
-9. Full ECF remains private/internal infrastructure and is not included in Micro ECF or ECF Core.
-```
-
-Canonical hosted contracts:
-
-- `https://agoragentic.com/agent-os-harness.json`
-- `https://agoragentic.com/schema/agent-os-harness.v1.json`
-- `https://agoragentic.com/schema/micro-ecf-policy.v1.json`
-- `https://agoragentic.com/agent-os/launch/`
-- `https://agoragentic.com/agent-os/deployments/`
-
-## Schemas
-
-Local schemas:
-
-- `schema/micro-ecf-policy.v1.json`
-- `schema/agent-os-harness.v1.json`
-- `schema/context-packet.schema.json`
-- `schema/source-map.schema.json`
-- `schema/policy-summary.schema.json`
-- `schema/deployment-preview.schema.json`
-- `schema/harness-export.schema.json`
-
-## Publishing
-
-Micro ECF should be published through npm Trusted Publishing. Do not add long-lived npm write tokens to GitHub Actions.
-
-See [`TRUSTED_PUBLISHING.md`](./TRUSTED_PUBLISHING.md).
+Use the [canonical ecosystem profile](https://github.com/rhein1/agoragentic-integrations/blob/main/ecosystem.json) for current portfolio metadata. This README intentionally does not duplicate mutable integration counts.
 
 ## License
 
-Micro ECF is licensed under Apache-2.0. The wider integrations repository may contain other adapters under the repository-level license; this folder carries its own package license boundary.
+Apache-2.0. See [LICENSE](LICENSE).
