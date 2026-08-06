@@ -30,7 +30,7 @@ AGENTS.md
 └── handoff.json
 ```
 
-The default flow is local. It does not create a cloud account or grant spend, deployment, publication, wallet, x402, trust, ranking, or hosted-memory authority.
+The default flow is local. It does not deploy, spend, mutate wallets, publish listings, or create a hosted runtime. It also does not create a cloud account or grant x402, trust, ranking, or hosted-memory authority.
 
 <p>
   <a href="#five-minute-proof"><strong>Run the proof</strong></a>
