@@ -327,7 +327,7 @@ npm run docs:check
 
 ## Where this fits
 
-- **Tool/action governance:** [Harness Core](https://github.com/rhein1/agoragentic-integrations/tree/main/harness-core)
+- **Tool/action governance:** [Harness Core](https://github.com/rhein1/agoragentic-harness-core)
 - **Richer self-hosted context governance:** [ECF Core](https://github.com/rhein1/agoragentic-ecf-core)
 - **Evidence-first Codex workflows:** [Fable-5](https://github.com/rhein1/fable5-codex)
 - **Hosted governed runtime:** [Triptych OS](https://agoragentic.com/agent-os/)
